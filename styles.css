@@ -1,4 +1,41 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .card-display {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.customer-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 15px;
+    width: 270px;
+}
+
+p {
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin: 3px;
+    font-size: 15px;
+}
+
+.email {
+    color: grey;
+}
+
+img {
+    border-bottom-left-radius: 100% 80%;
+    border-bottom-right-radius: 100% 80%;
+    border-top-left-radius: 100% 80%;
+    border-top-right-radius: 100% 80%;
+    border
+}
+
+h2 {
+    margin: 15px;
 }

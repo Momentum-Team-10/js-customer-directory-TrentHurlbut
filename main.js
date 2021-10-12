@@ -4,12 +4,17 @@ let emails = document.querySelectorAll('.email');
 let addresses = document.querySelectorAll('.address');
 let dates = document.querySelectorAll('.dates');
 
-console.log(customers[1]);
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
 
 let counter = 0;
+
 window.addEventListener('load', () => {
     for (let headshot of headshots) {
-        headshot.src = customers[counter].picture.medium;
+        headshot.src = customers[counter].picture.large;
         counter++;
     }
 
@@ -17,7 +22,9 @@ window.addEventListener('load', () => {
 
     for (let name of names) {
         name.innerText =
-            customers[counter].name.first + ' ' + customers[counter].name.last;
+            toTitleCase(customers[counter].name.first) +
+            ' ' +
+            toTitleCase(customers[counter].name.last);
         counter++;
     }
 
@@ -38,25 +45,9 @@ window.addEventListener('load', () => {
             '\n' +
             customers[counter].location.city +
             ', ' +
-            customers[counter].location.state +
+            nameToAbbr(customers[counter].location.state) +
             ' ' +
-            customers[counter].location.country;
-        counter++;
-    }
-
-    counter = 0;
-
-    for (let address of addresses) {
-        address.innerText =
-            customers[counter].location.street.number +
-            ' ' +
-            customers[counter].location.street.name +
-            '\n' +
-            customers[counter].location.city +
-            ', ' +
-            customers[counter].location.state +
-            ' ' +
-            customers[counter].location.country;
+            customers[counter].location.postcode;
         counter++;
     }
 
